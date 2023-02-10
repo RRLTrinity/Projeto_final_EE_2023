@@ -8,4 +8,4 @@ Datas importantes:
 
 13/02 - Testes no laboratório
 
-16/02 - Apresentação final
+17/02 - Apresentação final
