@@ -8,4 +8,8 @@ Datas importantes:
 
 13/02 - Testes no laboratório
 
+14/02 - Filmagens 
+
+15/02 - Entregar os arquivos
+
 17/02 - Apresentação final
