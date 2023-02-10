@@ -4,4 +4,8 @@ Por hora foram adiconados os periféricos e feitas as configurações preliminar
 Agora é necessário fazer as configurações da main para começar a fazer os testes no laboratório.
 
 
-Agenda do projeto:
+Datas importantes:
+
+13/02 - Testes no laboratório
+
+16/02 - Apresentação final
