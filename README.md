@@ -13,3 +13,14 @@ Datas importantes:
 15/02 - Entregar os arquivos
 
 17/02 - Apresentação final
+
+O que falta:
+
+Escrever a função  de exibir o andar
+Escrever a função dos simbolos no LED
+Escrever a Main
+Simular
+Gravar Videos
+Testar no Lab
+Escrever Relatório
+Apresentar
