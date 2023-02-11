@@ -99,8 +99,31 @@ uint8_t txBytes[4],
              = 1 up
              = 2 down
  */
+  
+    /*Funções para os LEDs*/
+
+void led(void){
+    for(int i = 0;i<8;i++){
+        txMAX7219(i+1,LEDs[i]);
+    }
+}
+
+void show_led(){
     
+    for(int i =0;1<4;i++){
+        LEDs[i] = DATAEE_ReadByte(4*(floor_current+1)+i);
+        LEDS[i+4] = DATAEE_ReadByte(4*(motor_state+6)+i);
+    }
+    led();
+    
+    
+}
+
+
     /*função para o encoder*/
+
+
+
 void Encoder(){
     if(motor_state == 1 && pulses < 215 ){
         pulses ++;
@@ -118,7 +141,7 @@ void Encoder(){
     TMR4_WriteTimer(0);
 }
 
-void com_ser(){
+void ser_com(){
     
     txBytes[0] = 0xB3 & ((uint8_t)motor_state<<4| (0b10000000)|((uint8_t)pulses));
     txBytes[1] = 0x7F & (uint8_t)(position/2);
@@ -133,7 +156,7 @@ void com_ser(){
 
 /*Função que controla o elevador*/
 
-void motion(){
+void motion(void){
     
     // Controla o movimento do elevador
     if (floor_current != floor_req){
@@ -201,8 +224,9 @@ void current_floor(){
 
 void main(void)
 {
-    // initialize the device
+    // initialize the devices
     SYSTEM_Initialize();
+    initMAX7219();
 
     // When using interrupts, you need to set the Global and Peripheral Interrupt Enable bits
     // Use the following macros to:
@@ -212,16 +236,25 @@ void main(void)
 
     // Enable the Peripheral Interrupts
     INTERRUPT_PeripheralInterruptEnable();
+    
+    // Another iterruptions
+    TMR1_SetInterruptHandler(ser_com);
+    IOCBF6_SetInterruptHandler();
+    IOCBF7_SetInterruptHandler();
+    
+            
 
     // Disable the Global Interrupts
     //INTERRUPT_GlobalInterruptDisable();
 
     // Disable the Peripheral Interrupts
     //INTERRUPT_PeripheralInterruptDisable();
-
+    current_floor();
+    
     while (1)
     {
         ctrl();
+        show_led();
         
         // Add your application code
     }
