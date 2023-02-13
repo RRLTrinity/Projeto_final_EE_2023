@@ -81,15 +81,17 @@
  */
 
 #define pwm_dc = 460
+#define pulse = .837
 
+float position;
 int motor_state   = 0,
     floor_current = 0,
     pulses        = 0,
     speed         = 0,
     temperature   = 0,
-    position      = 0,
     floor_req     = 3;
 
+uint16_t colect_value =0;
 uint8_t txBytes[4],
         LEDs[8],                 
         rxByte;                 
@@ -110,9 +112,9 @@ void led(void){
 
 void show_led(){
     
-    for(int i =0;1<4;i++){
+    for(int i =0;i<4;i++){
         LEDs[i] = DATAEE_ReadByte(4*(floor_current+1)+i);
-        LEDS[i+4] = DATAEE_ReadByte(4*(motor_state+6)+i);
+        LEDs[i+4] = DATAEE_ReadByte(4*(motor_state+6)+i);
     }
     led();
     
@@ -124,7 +126,9 @@ void show_led(){
 
 
 
-void Encoder(){
+void Encoder(uint16_t encoder_value){
+    
+    colect_value = encoder_value;
     if(motor_state == 1 && pulses < 215 ){
         pulses ++;
     }
@@ -138,7 +142,7 @@ void Encoder(){
     else {
         pulses == 0;
     }
-    TMR4_WriteTimer(0);
+    TMR1_WriteTimer(0);
 }
 
 void ser_com(){
@@ -226,6 +230,7 @@ void main(void)
 {
     // initialize the devices
     SYSTEM_Initialize();
+    SPI1_Open(SPI1_DEFAULT);
     initMAX7219();
 
     // When using interrupts, you need to set the Global and Peripheral Interrupt Enable bits
@@ -238,9 +243,10 @@ void main(void)
     INTERRUPT_PeripheralInterruptEnable();
     
     // Another iterruptions
-    TMR1_SetInterruptHandler(ser_com);
+    TMR4_SetInterruptHandler(ser_com);
     IOCBF6_SetInterruptHandler();
     IOCBF7_SetInterruptHandler();
+    
     
             
 
@@ -249,12 +255,22 @@ void main(void)
 
     // Disable the Peripheral Interrupts
     //INTERRUPT_PeripheralInterruptDisable();
+    CCP4_SetCallBack(Encoder)
     current_floor();
+
     
     while (1)
     {
         ctrl();
         show_led();
+        temperature = (int)(ADC_GetConversion()*2.0);
+        speed = (int)(pulse/(((float)colect_value)*.000002))*4;
+        position = (pulse*pulses);  
+        
+        if(EUSART_is_rx_ready()){
+            rxByte = EUSART_Read();
+            floor_req = (int)(rxByte & 0x03);
+        }
         
         // Add your application code
     }
