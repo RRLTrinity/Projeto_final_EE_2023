@@ -16,11 +16,7 @@ Datas importantes:
 
 O que falta:
 
-Escrever a função  de exibir o andar
 
-Escrever a função dos simbolos no LED
-
-Escrever a Main
 
 Simular
 
