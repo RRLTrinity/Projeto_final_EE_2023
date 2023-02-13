@@ -80,8 +80,8 @@
  * 
  */
 
-#define pwm_dc = 460
-#define pulse = .837
+#define pwm_dc     460
+#define pulse      .837
 
 float position;
 int motor_state   = 0,
@@ -132,15 +132,15 @@ void Encoder(uint16_t encoder_value){
     if(motor_state == 1 && pulses < 215 ){
         pulses ++;
     }
-    else if(motor_state = 2 && pulses >0){
+    else if(motor_state == 2 && pulses >0){
         pulses --;
     }
     else if(motor_state==0){
-        speed == 0;
+        speed = 0;
     }
     
     else {
-        pulses == 0;
+        pulses = 0;
     }
     TMR1_WriteTimer(0);
 }
@@ -205,6 +205,48 @@ void ctrl(){
     
     
 }
+/*
+void sensor1_ISR(void) {
+
+    // Add custom IOCBF6 code
+
+    // Call the interrupt handler for the callback registered at runtime
+    if(IOCBF6_InterruptHandler)
+    {
+        IOCBF6_InterruptHandler();
+    }
+    floor_current = 0;
+    IOCBFbits.IOCBF6 = 0;
+}
+
+void sensor2_ISR(void) {
+
+    // Add custom IOCBF7 code
+
+    // Call the interrupt handler for the callback registered at runtime
+    if(IOCBF7_InterruptHandler)
+    {
+        IOCBF7_InterruptHandler();
+    }
+    floor_current = 1;
+    IOCBFbits.IOCBF7 = 0;
+}
+
+
+void CMP1_ISR(void)
+{   
+    floor_current = 2;
+    // clear the CMP1 interrupt flag
+    PIR2bits.C1IF = 0;
+}
+
+void CMP2_ISR(void)
+{
+    floor_current = 2;
+    // clear the CMP2 interrupt flag
+    PIR2bits.C2IF = 0;
+}
+*/
 
 void current_floor(){
 //Verificando sensor S1
@@ -216,7 +258,7 @@ void current_floor(){
         floor_current = 1;
     }
 //Verificando sensor S3
-    else if(channel_AN0_GetValue()==1){
+    else if(RA2_GetValue()==1){
         floor_current = 2;
     }
 //Verificando sensor S4
@@ -244,8 +286,8 @@ void main(void)
     
     // Another iterruptions
     TMR4_SetInterruptHandler(ser_com);
-    IOCBF6_SetInterruptHandler();
-    IOCBF7_SetInterruptHandler();
+    IOCBF6_SetInterruptHandler(IOCBF6_ISR);
+    IOCBF7_SetInterruptHandler(IOCBF7_ISR);
     
     
             
@@ -255,7 +297,7 @@ void main(void)
 
     // Disable the Peripheral Interrupts
     //INTERRUPT_PeripheralInterruptDisable();
-    CCP4_SetCallBack(Encoder)
+    CCP4_SetCallBack(Encoder);
     current_floor();
 
     
