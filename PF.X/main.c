@@ -263,7 +263,7 @@ void main(void)
     {
         ctrl();
         show_led();
-        temperature = (int)(ADC_GetConversion()*2.0);
+        temperature = (int)(ADC_GetConversion(channel_AN0)*2.0);
         speed = (int)(pulse/(((float)colect_value)*.000002))*4;
         position = (pulse*pulses);  
         
