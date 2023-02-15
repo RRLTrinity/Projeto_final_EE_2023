@@ -65,19 +65,15 @@
 #define PULL_UP_ENABLED      1
 #define PULL_UP_DISABLED     0
 
-// get/set channel_AN0 aliases
-#define channel_AN0_TRIS                 TRISAbits.TRISA0
-#define channel_AN0_LAT                  LATAbits.LATA0
-#define channel_AN0_PORT                 PORTAbits.RA0
-#define channel_AN0_ANS                  ANSELAbits.ANSA0
-#define channel_AN0_SetHigh()            do { LATAbits.LATA0 = 1; } while(0)
-#define channel_AN0_SetLow()             do { LATAbits.LATA0 = 0; } while(0)
-#define channel_AN0_Toggle()             do { LATAbits.LATA0 = ~LATAbits.LATA0; } while(0)
-#define channel_AN0_GetValue()           PORTAbits.RA0
-#define channel_AN0_SetDigitalInput()    do { TRISAbits.TRISA0 = 1; } while(0)
-#define channel_AN0_SetDigitalOutput()   do { TRISAbits.TRISA0 = 0; } while(0)
-#define channel_AN0_SetAnalogMode()      do { ANSELAbits.ANSA0 = 1; } while(0)
-#define channel_AN0_SetDigitalMode()     do { ANSELAbits.ANSA0 = 0; } while(0)
+// get/set RA0 procedures
+#define RA0_SetHigh()            do { LATAbits.LATA0 = 1; } while(0)
+#define RA0_SetLow()             do { LATAbits.LATA0 = 0; } while(0)
+#define RA0_Toggle()             do { LATAbits.LATA0 = ~LATAbits.LATA0; } while(0)
+#define RA0_GetValue()              PORTAbits.RA0
+#define RA0_SetDigitalInput()    do { TRISAbits.TRISA0 = 1; } while(0)
+#define RA0_SetDigitalOutput()   do { TRISAbits.TRISA0 = 0; } while(0)
+#define RA0_SetAnalogMode()         do { ANSELAbits.ANSA0 = 1; } while(0)
+#define RA0_SetDigitalMode()        do { ANSELAbits.ANSA0 = 0; } while(0)
 
 // get/set RA1 procedures
 #define RA1_SetHigh()            do { LATAbits.LATA1 = 1; } while(0)
@@ -89,6 +85,20 @@
 #define RA1_SetAnalogMode()         do { ANSELAbits.ANSA1 = 1; } while(0)
 #define RA1_SetDigitalMode()        do { ANSELAbits.ANSA1 = 0; } while(0)
 
+// get/set channel_AN2 aliases
+#define channel_AN2_TRIS                 TRISAbits.TRISA2
+#define channel_AN2_LAT                  LATAbits.LATA2
+#define channel_AN2_PORT                 PORTAbits.RA2
+#define channel_AN2_ANS                  ANSELAbits.ANSA2
+#define channel_AN2_SetHigh()            do { LATAbits.LATA2 = 1; } while(0)
+#define channel_AN2_SetLow()             do { LATAbits.LATA2 = 0; } while(0)
+#define channel_AN2_Toggle()             do { LATAbits.LATA2 = ~LATAbits.LATA2; } while(0)
+#define channel_AN2_GetValue()           PORTAbits.RA2
+#define channel_AN2_SetDigitalInput()    do { TRISAbits.TRISA2 = 1; } while(0)
+#define channel_AN2_SetDigitalOutput()   do { TRISAbits.TRISA2 = 0; } while(0)
+#define channel_AN2_SetAnalogMode()      do { ANSELAbits.ANSA2 = 1; } while(0)
+#define channel_AN2_SetDigitalMode()     do { ANSELAbits.ANSA2 = 0; } while(0)
+
 // get/set RA3 procedures
 #define RA3_SetHigh()            do { LATAbits.LATA3 = 1; } while(0)
 #define RA3_SetLow()             do { LATAbits.LATA3 = 0; } while(0)
@@ -98,6 +108,35 @@
 #define RA3_SetDigitalOutput()   do { TRISAbits.TRISA3 = 0; } while(0)
 #define RA3_SetAnalogMode()         do { ANSELAbits.ANSA3 = 1; } while(0)
 #define RA3_SetDigitalMode()        do { ANSELAbits.ANSA3 = 0; } while(0)
+
+// get/set RA4 procedures
+#define RA4_SetHigh()            do { LATAbits.LATA4 = 1; } while(0)
+#define RA4_SetLow()             do { LATAbits.LATA4 = 0; } while(0)
+#define RA4_Toggle()             do { LATAbits.LATA4 = ~LATAbits.LATA4; } while(0)
+#define RA4_GetValue()              PORTAbits.RA4
+#define RA4_SetDigitalInput()    do { TRISAbits.TRISA4 = 1; } while(0)
+#define RA4_SetDigitalOutput()   do { TRISAbits.TRISA4 = 0; } while(0)
+#define RA4_SetAnalogMode()         do { ANSELAbits.ANSA4 = 1; } while(0)
+#define RA4_SetDigitalMode()        do { ANSELAbits.ANSA4 = 0; } while(0)
+
+// get/set RA6 procedures
+#define RA6_SetHigh()            do { LATAbits.LATA6 = 1; } while(0)
+#define RA6_SetLow()             do { LATAbits.LATA6 = 0; } while(0)
+#define RA6_Toggle()             do { LATAbits.LATA6 = ~LATAbits.LATA6; } while(0)
+#define RA6_GetValue()              PORTAbits.RA6
+#define RA6_SetDigitalInput()    do { TRISAbits.TRISA6 = 1; } while(0)
+#define RA6_SetDigitalOutput()   do { TRISAbits.TRISA6 = 0; } while(0)
+
+// get/set IO_RA7 aliases
+#define IO_RA7_TRIS                 TRISAbits.TRISA7
+#define IO_RA7_LAT                  LATAbits.LATA7
+#define IO_RA7_PORT                 PORTAbits.RA7
+#define IO_RA7_SetHigh()            do { LATAbits.LATA7 = 1; } while(0)
+#define IO_RA7_SetLow()             do { LATAbits.LATA7 = 0; } while(0)
+#define IO_RA7_Toggle()             do { LATAbits.LATA7 = ~LATAbits.LATA7; } while(0)
+#define IO_RA7_GetValue()           PORTAbits.RA7
+#define IO_RA7_SetDigitalInput()    do { TRISAbits.TRISA7 = 1; } while(0)
+#define IO_RA7_SetDigitalOutput()   do { TRISAbits.TRISA7 = 0; } while(0)
 
 // get/set RB0 procedures
 #define RB0_SetHigh()            do { LATBbits.LATB0 = 1; } while(0)
@@ -144,6 +183,18 @@
 #define RB4_ResetPullup()           do { WPUBbits.WPUB4 = 0; } while(0)
 #define RB4_SetAnalogMode()         do { ANSELBbits.ANSB4 = 1; } while(0)
 #define RB4_SetDigitalMode()        do { ANSELBbits.ANSB4 = 0; } while(0)
+
+// get/set RB5 procedures
+#define RB5_SetHigh()            do { LATBbits.LATB5 = 1; } while(0)
+#define RB5_SetLow()             do { LATBbits.LATB5 = 0; } while(0)
+#define RB5_Toggle()             do { LATBbits.LATB5 = ~LATBbits.LATB5; } while(0)
+#define RB5_GetValue()              PORTBbits.RB5
+#define RB5_SetDigitalInput()    do { TRISBbits.TRISB5 = 1; } while(0)
+#define RB5_SetDigitalOutput()   do { TRISBbits.TRISB5 = 0; } while(0)
+#define RB5_SetPullup()             do { WPUBbits.WPUB5 = 1; } while(0)
+#define RB5_ResetPullup()           do { WPUBbits.WPUB5 = 0; } while(0)
+#define RB5_SetAnalogMode()         do { ANSELBbits.ANSB5 = 1; } while(0)
+#define RB5_SetDigitalMode()        do { ANSELBbits.ANSB5 = 0; } while(0)
 
 // get/set IO_RB6 aliases
 #define IO_RB6_TRIS                 TRISBbits.TRISB6

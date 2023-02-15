@@ -67,8 +67,8 @@ void CMP1_Initialize(void)
 	// C1HYS enabled; C1SP hi_speed; C1ON enabled; C1POL not inverted; C1OE COUT_internal; C1SYNC asynchronous;                          
     CM1CON0 = 0x86;
 	
-	// C1INTN no_intFlag; C1INTP intFlag_pos; C1PCH DAC; C1NCH CIN0-;                          
-    CM1CON1 = 0x90;
+	// C1INTN no_intFlag; C1INTP intFlag_pos; C1PCH DAC; C1NCH CIN2-;                          
+    CM1CON1 = 0x92;
 	
     // Clearing IF flag before enabling the interrupt.
     PIR2bits.C1IF = 0;
@@ -82,12 +82,13 @@ bool CMP1_GetOutputStatus(void)
 	return (CMOUTbits.MC1OUT);
 }
 
+/*
 void CMP1_ISR(void)
 {
     // clear the CMP1 interrupt flag
     PIR2bits.C1IF = 0;
 }
-
+*/
 /**
  End of File
 */

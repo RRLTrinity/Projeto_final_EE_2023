@@ -82,12 +82,13 @@ bool CMP2_GetOutputStatus(void)
 	return (CMOUTbits.MC2OUT);
 }
 
+/*
 void CMP2_ISR(void)
 {
     // clear the CMP2 interrupt flag
     PIR2bits.C2IF = 0;
 }
-
+*/
 /**
  End of File
 */
