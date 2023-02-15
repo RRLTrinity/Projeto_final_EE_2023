@@ -43,14 +43,14 @@ __EEPROM_DATA(
 
 
 void txMAX7219(uint8_t addr, uint8_t dat){
-    CS_SetLow();
+    RA6_SetLow();
     SPI1_WriteByte(addr);
     while(!PIR1bits.SSP1IF);
     PIR1bits.SSP1IF = 0;
     SPI1_WriteByte(dat);
     while(!PIR1bits.SSP1IF);
     PIR1bits.SSP1IF = 0;
-    CS_SetHigh();
+    RA6_SetHigh();
 }
 
 void initMAX7219(){

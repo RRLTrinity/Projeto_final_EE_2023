@@ -91,7 +91,8 @@ int motor_state   = 0,
     temperature   = 0,
     floor_req     = 3;
 
-uint16_t colect_value =0;
+uint16_t colect_value =0,
+         v;
 uint8_t txBytes[4],
         LEDs[8],                 
         rxByte;                 
@@ -205,7 +206,7 @@ void ctrl(){
     
     
 }
-/*
+
 void sensor1_ISR(void) {
 
     // Add custom IOCBF6 code
@@ -216,6 +217,7 @@ void sensor1_ISR(void) {
         IOCBF6_InterruptHandler();
     }
     floor_current = 0;
+    pulses = 0;
     IOCBFbits.IOCBF6 = 0;
 }
 
@@ -242,11 +244,12 @@ void CMP1_ISR(void)
 
 void CMP2_ISR(void)
 {
-    floor_current = 2;
+    floor_current = 3;
+    pulses = 215;
     // clear the CMP2 interrupt flag
     PIR2bits.C2IF = 0;
 }
-*/
+
 
 void current_floor(){
 //Verificando sensor S1
@@ -258,11 +261,11 @@ void current_floor(){
         floor_current = 1;
     }
 //Verificando sensor S3
-    else if(RA2_GetValue()==1){
+    else if(CMP1_GetOutputStatus()==1){
         floor_current = 2;
     }
 //Verificando sensor S4
-    else if(RA1_GetValue()==1){
+    else if(CMP2_GetOutputStatus()==1){
         floor_current = 3;
     }    
 }
@@ -272,8 +275,7 @@ void main(void)
 {
     // initialize the devices
     SYSTEM_Initialize();
-    SPI1_Open(SPI1_DEFAULT);
-    initMAX7219();
+      
 
     // When using interrupts, you need to set the Global and Peripheral Interrupt Enable bits
     // Use the following macros to:
@@ -284,13 +286,18 @@ void main(void)
     // Enable the Peripheral Interrupts
     INTERRUPT_PeripheralInterruptEnable();
     
+    SPI1_Open(SPI1_DEFAULT);
+    //initMAX7219(); 
+    
     // Another iterruptions
     TMR4_SetInterruptHandler(ser_com);
-    IOCBF6_SetInterruptHandler(IOCBF6_ISR);
-    IOCBF7_SetInterruptHandler(IOCBF7_ISR);
+    IOCBF6_SetInterruptHandler(sensor1_ISR);
+    IOCBF7_SetInterruptHandler(sensor2_ISR);
     
     
-            
+    
+    
+       
 
     // Disable the Global Interrupts
     //INTERRUPT_GlobalInterruptDisable();
@@ -304,8 +311,9 @@ void main(void)
     while (1)
     {
         ctrl();
-        show_led();
-        temperature = (int)(ADC_GetConversion(channel_AN0)*2.0);
+        //show_led();
+        v = ADC_GetConversion(channel_AN2);
+        temperature = (int)((float)v*0.2);
         speed = (int)(pulse/(((float)colect_value)*.000002))*4;
         position = (pulse*pulses);  
         
