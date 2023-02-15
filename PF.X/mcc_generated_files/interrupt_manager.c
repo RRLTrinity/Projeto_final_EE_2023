@@ -52,11 +52,7 @@
 void __interrupt() INTERRUPT_InterruptManager (void)
 {
     // interrupt handler
-    if(INTCONbits.INTE == 1 && INTCONbits.INTF == 1)
-    {
-        INT_ISR();
-    }
-    else if(INTCONbits.IOCIE == 1 && INTCONbits.IOCIF == 1)
+    if(INTCONbits.IOCIE == 1 && INTCONbits.IOCIF == 1)
     {
         PIN_MANAGER_IOC();
     }

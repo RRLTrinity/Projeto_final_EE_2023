@@ -138,16 +138,6 @@
 #define IO_RA7_SetDigitalInput()    do { TRISAbits.TRISA7 = 1; } while(0)
 #define IO_RA7_SetDigitalOutput()   do { TRISAbits.TRISA7 = 0; } while(0)
 
-// get/set RB0 procedures
-#define RB0_SetHigh()            do { LATBbits.LATB0 = 1; } while(0)
-#define RB0_SetLow()             do { LATBbits.LATB0 = 0; } while(0)
-#define RB0_Toggle()             do { LATBbits.LATB0 = ~LATBbits.LATB0; } while(0)
-#define RB0_GetValue()              PORTBbits.RB0
-#define RB0_SetDigitalInput()    do { TRISBbits.TRISB0 = 1; } while(0)
-#define RB0_SetDigitalOutput()   do { TRISBbits.TRISB0 = 0; } while(0)
-#define RB0_SetPullup()             do { WPUBbits.WPUB0 = 1; } while(0)
-#define RB0_ResetPullup()           do { WPUBbits.WPUB0 = 0; } while(0)
-
 // get/set RB1 procedures
 #define RB1_SetHigh()            do { LATBbits.LATB1 = 1; } while(0)
 #define RB1_SetLow()             do { LATBbits.LATB1 = 0; } while(0)
