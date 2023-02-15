@@ -30,10 +30,6 @@
          <string>class com.microchip.mcc.mcu8.modules.eusart.EUSART</string>
       </entry>
       <entry>
-         <string>EXT_INT</string>
-         <string>class com.microchip.mcc.mcu8.modules.extint.EXTINT</string>
-      </entry>
-      <entry>
          <string>FVR</string>
          <string>class com.microchip.mcc.mcu8.modules.fvr.FVR</string>
       </entry>
@@ -180,7 +176,7 @@
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="ADC" name="dependentModuleKey"/>
-         <value>8</value>
+         <value>9</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="ADC" name="enableInterrupt"/>
@@ -1671,42 +1667,6 @@
          <value>enabled</value>
       </entry>
       <entry>
-         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="EXT_INT" name="EXT_INT_INTIISRFunction"/>
-         <value>ISR_EXT_INT_INTI</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="EXT_INT" name="INT"/>
-         <value>enabled</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="EXT_INT" registerAlias="OPTION_REG" settingAlias="INTEDG" alias="falling_edge"/>
-         <value>0</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="EXT_INT" registerAlias="OPTION_REG" settingAlias="INTEDG" alias="rising_edge"/>
-         <value>1</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.RegisterKey" moduleName="EXT_INT" registerAlias="OPTION_REG"/>
-         <value>64</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="EXT_INT" registerAlias="INTI" settingAlias="enable"/>
-         <value>enabled</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="EXT_INT" registerAlias="INTI" settingAlias="flag"/>
-         <value>disabled</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="EXT_INT" registerAlias="INTI" settingAlias="order"/>
-         <value>-1</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="EXT_INT" registerAlias="OPTION_REG" settingAlias="INTEDG"/>
-         <value>rising_edge</value>
-      </entry>
-      <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="FVR" name="adfvrVoltage"/>
          <value>2.048 V</value>
       </entry>
@@ -2372,7 +2332,7 @@
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="MSSP1" name="tmr2PeriodValue"/>
-         <value>0.00052</value>
+         <value>0.39936</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="MSSP1" registerAlias="SSPCON1" settingAlias="CKP" alias="Idle:High, Active:Low"/>
@@ -3164,11 +3124,11 @@
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="Pin Module" name="ioc RB6"/>
-         <value>positive</value>
+         <value>any</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="Pin Module" name="ioc RB7"/>
-         <value>positive</value>
+         <value>any</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="Pin Module" name="iocUserSet RA0"/>
@@ -4676,7 +4636,7 @@
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="TMR1" name="dependentModuleKey"/>
-         <value>5</value>
+         <value>6</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="TMR1" name="gatePin"/>
@@ -5409,10 +5369,6 @@
          <hash>d707b2a356c0d56e10561211cb9780623b38f6ab520391b38b5ec2bcbab45497</hash>
       </entry>
       <entry>
-         <file>mcc_generated_files\ext_int.c</file>
-         <hash>7e5cc5486587aaa795add70dbb252d3076ce08684515fddba1e758fdc0dfbcf8</hash>
-      </entry>
-      <entry>
          <file>mcc_generated_files\memory.c</file>
          <hash>9b06ee9fff3b169e58bd27a47f151a693ef75123b53cf8c18aa63c1906d7b62e</hash>
       </entry>
@@ -5446,11 +5402,11 @@
       </entry>
       <entry>
          <file>mcc_generated_files\mcc.c</file>
-         <hash>ff2fecc2348b18ef5c69ed1de916ad1d3b44992b41dc2fdffa22287862724c1c</hash>
+         <hash>90fb2e28d8de005abbfcc9dd1a98305c11ff3e975feff0c270b45e49d9ca16ed</hash>
       </entry>
       <entry>
          <file>mcc_generated_files\mcc.h</file>
-         <hash>ea1274d50f002d3f39cf84cba70df44354ef765e5d1986defbe7eeb36eceb20a</hash>
+         <hash>00fb7c1edfff079a4bc7516f85bd84d9b065cad3595cd9667451ea1c0cb9eafc</hash>
       </entry>
       <entry>
          <file>mcc_generated_files\device_config.h</file>
@@ -5469,24 +5425,24 @@
          <hash>d4e8bcbcb679cb955632857da55ad0b3066ef3bbbe4442d3a9a3b768ccea7ca7</hash>
       </entry>
       <entry>
-         <file>mcc_generated_files\tmr2.h</file>
-         <hash>ff9cd458725a2612bb55636b38815a75edf189f5db9bcea269c1a73ddc555bc5</hash>
-      </entry>
-      <entry>
          <file>mcc_generated_files\device_config.c</file>
          <hash>42f5de9d140a2b1a569f5b4d8b040d709a1f9df6a0d06374bfe0155fe86af9de</hash>
       </entry>
       <entry>
-         <file>mcc_generated_files\pin_manager.h</file>
-         <hash>95d2f007ab72100572305c5c4799818660a86ffd4bbcb4e1a3fe7f4284217713</hash>
+         <file>mcc_generated_files\tmr2.h</file>
+         <hash>ff9cd458725a2612bb55636b38815a75edf189f5db9bcea269c1a73ddc555bc5</hash>
+      </entry>
+      <entry>
+         <file>mcc_generated_files\ccp4.h</file>
+         <hash>7b64f27220921a205e5c71b4119d901c24facaeb285abf612291ed6d3979b708</hash>
       </entry>
       <entry>
          <file>mcc_generated_files\tmr2.c</file>
          <hash>7720b1382cf2eb6413334712a87c1ca763e3032c4217948a1e3666b46d171ccb</hash>
       </entry>
       <entry>
-         <file>mcc_generated_files\ccp4.h</file>
-         <hash>7b64f27220921a205e5c71b4119d901c24facaeb285abf612291ed6d3979b708</hash>
+         <file>mcc_generated_files\pin_manager.h</file>
+         <hash>7736d63f75fe11a7781668c2f220d90fdcd545e08586b45987a46239a4da0802</hash>
       </entry>
       <entry>
          <file>mcc_generated_files\tmr1.c</file>
@@ -5510,7 +5466,7 @@
       </entry>
       <entry>
          <file>mcc_generated_files\pin_manager.c</file>
-         <hash>cb9144e03595ef1a761e5fe624bb136a151367856aad141424b4a875cf0d63a6</hash>
+         <hash>a4aec9fe353acfc7530d7ca97debd98303c497fa32e162013ab4773162808f77</hash>
       </entry>
       <entry>
          <file>mcc_generated_files\cmp2.c</file>
@@ -5534,11 +5490,7 @@
       </entry>
       <entry>
          <file>mcc_generated_files\interrupt_manager.c</file>
-         <hash>b3687ff44b845a486185de2c48e889e152e232f719f16fa9e20ba0b43bbaf450</hash>
-      </entry>
-      <entry>
-         <file>mcc_generated_files\ext_int.h</file>
-         <hash>a7055481a7e6ff5c39949800b19e3fa9c9ce7b362cafe50d61bafb35cd8f00d8</hash>
+         <hash>fd1ad6b8b05d29b714b06d6b31fa59cf8c692c74fc7ac45010cfc1bb3a627118</hash>
       </entry>
       <entry>
          <file>mcc_generated_files\memory.h</file>
