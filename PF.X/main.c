@@ -202,6 +202,18 @@ void ctrl(){
         motor_state = 2;
     }
     
+    else if (floor_current==floor_req && floor_current!=0){
+        if(motor_state == 0){
+            
+            PWM3_LoadDutyValue(0);
+            __delay_ms(5000);
+        }
+        IO_RA7_SetLow();
+        motor_state = 2;
+        floor_req = 0;
+        
+    }
+    
     motion();    
     
     
